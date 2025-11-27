@@ -4,12 +4,12 @@ import Portrait from '../../../src/assets/images/Portrait.png';
 
 const About = () => {
   return (
-    <div className='about-section'>
+    <div className='about-section' id="about">
       <div className='about-content'>
         <div className="about-text-image">
           <div className="about-text">
             <h4 className='about-title'> &lt;ABOUT ME /&gt;</h4>
-            <h4 className='about-subtitle'>WHO THE F**k AM I?</h4>
+            <h4 className='about-subtitle'>WHO AM I?</h4>
             <h1 className='about-text'>
               I'm a <span className="glow-text">full-stack developer</span> based in Johannesburg, South Africa. Currently employed as a data analyst.<br/><br/>
               My approach combines <span className='glow-text'>logic, creativity, and precision</span> to craft solutions 
@@ -26,7 +26,15 @@ const About = () => {
           </div>
           <img src={Portrait} alt="Portrait" className="about-image" />
         </div>
-        <button className='round-outline-btn'>DOWNLOAD CV</button>
+        <button className="round-outline-btn">
+            <a 
+              href="/Mthobisi Khoza.pdf" 
+              download 
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              DOWNLOAD CV
+            </a>
+      </button>
       </div>
     </div>
   )

@@ -1,13 +1,13 @@
 .about-content {
   position: relative;
   z-index: 1;
+  left: 250px;
   /* keeps text above canvas */
 }
 
 .about-section {
   min-height: 95vh;
   width: 100%;
-  left: 250px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -80,3 +80,81 @@
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ---- General responsive styles ---- */
+@media (max-width: 900px) {
+
+    .about-section {
+        padding: 40px 5%;
+        min-height: auto;
+        align-items: center;
+    }
+
+    .about-content {
+        left: 0; /* remove fixed offset */
+        text-align: center;
+    }
+
+    .about-text-image {
+        flex-direction: column; /* stack text and image vertically */
+        gap: 20px;
+        align-items: center;
+    }
+
+    .about-text {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .about-title {
+        margin-top: 80px;
+        font-size: clamp(1.5rem, 6vw, 26px);
+        left: 0;
+    }
+
+    .about-subtitle {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .about-subtext {
+        font-size: 13px;
+        line-height: 1.4;
+        margin-bottom: 25px;
+    }
+
+    .about-image {
+        width: 300px; /* scale down */
+        height: 300px;
+        margin-top: 0;
+        margin-right: 0;
+    }
+
+    .round-outline-btn {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .about-text {
+        font-size: 16px;
+    }
+
+    .about-title {
+        font-size: clamp(1.2rem, 8vw, 22px);
+    }
+
+    .about-subtitle {
+        font-size: 12px;
+    }
+
+    .about-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about-subtext {
+        font-size: 12px;
+    }
+}
+

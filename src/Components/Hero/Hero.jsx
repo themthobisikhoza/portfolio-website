@@ -79,7 +79,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='hero-section'>
+    <div className='hero-section' id ="hero">
       <canvas id="hero-bg" className="hero-bg"></canvas>
 
       <div className='hero-content'>
@@ -93,16 +93,16 @@ const Hero = () => {
       </div>
 
       <div className="social-icons"> 
-        <a href="#" target="_blank" rel="noopener noreferrer"> 
+        <a href="mailto:khozamthobisi7@gmail.com" target="_blank" rel="noopener noreferrer"> 
           <img src="../../../src/assets/icons/email.png" alt="Email" /> 
         </a> 
-        <a href="#" target="_blank" rel="noopener noreferrer"> 
+        <a href="https://github.com/BeAHappyMoron" target="_blank" rel="noopener noreferrer"> 
           <img src="../../../src/assets/icons/github.png" alt="GitHub" /> 
         </a> 
-        <a href="#" target="_blank" rel="noopener noreferrer"> 
+        <a href="https://www.linkedin.com/in/mthobisi-khoza/" target="_blank" rel="noopener noreferrer"> 
           <img src="../../../src/assets/icons/linkedin.png" alt="LinkedIn" /> 
         </a> 
-      </div> 
+      </div>
 
       <div className="avatar-wrapper">
         <div className="avatar-circle"></div>

@@ -1,0 +1,187 @@
+/* ================================
+   CONTACT SECTION WRAPPER
+   ================================ */
+
+.contact-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    padding: 40px 10%;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+/* ================================
+   TITLES
+   ================================ */
+
+.contact-title {
+    font-size: clamp(1.5rem, 6vw, 30px);
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: lowercase;
+    font-weight: 400;
+    margin-top: 75px;
+    color: #0cc0df;
+}
+
+.contact-subtitle {
+    font-size: 15px;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    color: lightgray;
+    letter-spacing: 0.04ch;
+    margin-bottom: 35px;
+}
+
+/* ================================
+   2-COLUMN LAYOUT (NEW)
+   ================================ */
+
+.contact-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+/* LEFT COLUMN — EARTH */
+.contact-3d {
+    width: 45%;
+    height: 380px;
+}
+
+    .contact-3d canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+/* RIGHT COLUMN — FORM */
+.contact-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%; /* overrides old 100% width */
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 3px 20px rgba(0, 204, 223, 0.15);
+    transition: all 0.3s ease;
+}
+
+    /* Form Inputs */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 15px;
+        border-radius: 15px;
+        border: none;
+        outline: none;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-family: 'Poppins';
+        resize: none;
+        transition: all 0.3s ease;
+    }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: lightgray;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background: rgba(12, 192, 223, 0.1);
+            box-shadow: 0 0 10px rgba(12, 192, 223, 0.5);
+        }
+
+    /* Button */
+    .contact-form button {
+        font-family: 'Poppins';
+        background: #018ca4;
+        border-radius: 50px;
+        padding: 12px 28px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: white;
+        text-transform: uppercase;
+        margin-top: 12px;
+    }
+
+        .contact-form button:hover {
+            background: rgba(255, 255, 255, 0.09);
+            color: #9df1ff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 900px) {
+
+    .contact-content {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .contact-3d,
+    .contact-form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .contact-3d {
+        height: 300px;
+    }
+
+    .contact-title {
+        margin-top: 50px;
+        font-size: clamp(1.5rem, 8vw, 26px);
+    }
+
+    .contact-form {
+        padding: 30px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-form {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .contact-title {
+        font-size: clamp(1.2rem, 10vw, 22px);
+    }
+
+    .contact-subtitle {
+        font-size: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .contact-form button {
+        font-size: 11px;
+        padding: 8px 20px;
+    }
+}

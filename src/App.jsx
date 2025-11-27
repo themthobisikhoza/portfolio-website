@@ -4,6 +4,9 @@ import Hero from './Components/Hero/Hero';
 import About from './Components/About/About';
 import "./index.css";
 import Skills from "./Components/Skills/Skills";
+import CustomCursor from "./Components/CustomCursor/CustomCursor";
+import Contact from "./Components/Contact/Contact";
+import Projects from "./Components/Projects/Projects";
 
 const App = () => {
   const [darkBg, setDarkBg] = useState(false);
@@ -29,12 +32,16 @@ const App = () => {
 
   return (
     <div className="app-wrapper">
+      <CustomCursor/>
       <div className={`bg-layer light`}></div>
       <div className={`bg-layer dark ${darkBg ? "active" : ""}`}></div>
         <Navbar />
         <Hero />
         <About />
+        <Projects/>
         <Skills/>
+        <hr className="section-divider" />
+        <Contact/>
     </div>
 
   );

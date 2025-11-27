@@ -1,0 +1,31 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #0cc0df, #0077ff, #00f0ff);
+  background-size: 400% 400%;
+  animation: gradientShift 4s ease infinite;
+  z-index: 10000;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Optional: enlarge cursor on hover */
+a:hover, button:hover {
+  cursor: none; /* normal cursor hidden */
+}
+
+.cursor-hover {
+  width: 27px;
+  height: 27px;
+}
