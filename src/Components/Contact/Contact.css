@@ -185,3 +185,41 @@
         padding: 8px 20px;
     }
 }
+
+/* ========================= */
+/* ON-SCROLL BLUR + MOTION */
+/* ========================= */
+
+.animatable {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+    transition: all 0.8s ease;
+}
+
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Optional: stagger delays for different elements */
+.animate-delay-0 {
+    transition-delay: 0s;
+}
+
+.animate-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.animate-delay-2 {
+    transition-delay: 0.4s;
+}
+
+.animate-delay-3 {
+    transition-delay: 0.6s;
+}
+
+.animate-delay-4 {
+    transition-delay: 0.8s;
+}

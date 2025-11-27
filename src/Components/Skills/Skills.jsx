@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import React from "react";
 import "./Skills.css";
 
@@ -20,102 +20,142 @@ import jupyterLogo from "../../assets/icons/jupyter.png";
 import sparkLogo from "../../assets/icons/apache-spark.png";
 
 const Skills = () => {
-  // 🎇 Particle Background
-  useEffect(() => {
-    const canvas = document.getElementById("skills-bg");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const animRefs = useRef([]);
 
-    const particles = [];
-    const particleCount = 120;
+    // 🎇 Particle Background
+    useEffect(() => {
+        const canvas = document.getElementById("skills-bg");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 1,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-      });
-    }
+        const particles = [];
+        const particleCount = 120;
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#0cc0df";
-        ctx.fill();
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                dx: (Math.random() - 0.5) * 0.5,
+                dy: (Math.random() - 0.5) * 0.5,
+            });
+        }
 
-        p.x += p.dx;
-        p.y += p.dy;
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p) => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = "#0cc0df";
+                ctx.fill();
 
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      requestAnimationFrame(animate);
-    }
+                p.x += p.dx;
+                p.y += p.dy;
 
-    animate();
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+            requestAnimationFrame(animate);
+        }
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
+        animate();
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+        const handleResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        window.addEventListener("resize", handleResize);
 
-  // 🔹 Skill categories with logos & description
-  const skills = [
-  {
-    title: "Frontend",
-    logos: [reactLogo, jsLogo, cssLogo],
-    description:
-      "I craft engaging, responsive interfaces using React, JavaScript, and CSS. My frontend work focuses on modern UI/UX principles, delivering intuitive and visually appealing applications. From animations to accessibility, I make sure every detail feels polished and user-friendly.",
-  },
-  {
-    title: "Backend",
-    logos: [javaLogo, csharpLogo, pythonLogo, databaseLogo],
-    description:
-      "I design and build scalable backends, APIs, and robust database systems. Experienced with Java, C#, Python, and SQL, I ensure security, maintainability, and efficiency in every project. My approach emphasizes clean architecture, optimized queries, and strong integration between services.",
-  },
-  {
-    title: "Data & Analytics",
-    logos: [powerBiLogo, tableauLogo, jupyterLogo, sparkLogo],
-    description:
-      "I specialize in transforming raw data into actionable insights using Power BI, Tableau, Jupyter, and PySpark. From building dashboards to running advanced analytics, I help teams make informed decisions. My focus is on clarity, accuracy, and scalable solutions for complex datasets.",
-  },
-  {
-    title: "Tools & Collaboration",
-    logos: [githubLogo, gitLogo, powerAppsLogo, powerAutomateLogo],
-    description:
-      "I thrive in collaborative environments using Git/GitHub for version control, Power Platform tools for automation, and agile practices to drive productivity. My toolkit ensures projects run smoothly from planning to deployment, with strong emphasis on teamwork and continuous improvement.",
-  },
-];
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-  return (
-    <div className="skills-section" id="skills">
-      <canvas id="skills-bg" className="skills-bg"></canvas>
-      <h2 className="skills-title">&lt;skills & expertise /&gt;</h2>
-      <h2 className="skills-subtitle">WHAT CAN I DO?</h2>
-      <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <div className="skill-card" key={index}>
-            <div className="logos">
-              {skill.logos.map((logo, idx) => (
-                <img src={logo} alt="tech-logo" key={idx} />
-              ))}
+    // 🔹 IntersectionObserver for animations
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        animRefs.current.forEach((el) => {
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    // 🔹 Skill categories with logos & description
+    const skills = [
+        {
+            title: "Frontend",
+            logos: [reactLogo, jsLogo, cssLogo],
+            description:
+                "I craft engaging, responsive interfaces using React, JavaScript, and CSS. My frontend work focuses on modern UI/UX principles, delivering intuitive and visually appealing applications. From animations to accessibility, I make sure every detail feels polished and user-friendly.",
+        },
+        {
+            title: "Backend",
+            logos: [javaLogo, csharpLogo, pythonLogo, databaseLogo],
+            description:
+                "I design and build scalable backends, APIs, and robust database systems. Experienced with Java, C#, Python, and SQL, I ensure security, maintainability, and efficiency in every project. My approach emphasizes clean architecture, optimized queries, and strong integration between services.",
+        },
+        {
+            title: "Data & Analytics",
+            logos: [powerBiLogo, tableauLogo, jupyterLogo, sparkLogo],
+            description:
+                "I specialize in transforming raw data into actionable insights using Power BI, Tableau, Jupyter, and PySpark. From building dashboards to running advanced analytics, I help teams make informed decisions. My focus is on clarity, accuracy, and scalable solutions for complex datasets.",
+        },
+        {
+            title: "Tools & Collaboration",
+            logos: [githubLogo, gitLogo, powerAppsLogo, powerAutomateLogo],
+            description:
+                "I thrive in collaborative environments using Git/GitHub for version control, Power Platform tools for automation, and agile practices to drive productivity. My toolkit ensures projects run smoothly from planning to deployment, with strong emphasis on teamwork and continuous improvement.",
+        },
+    ];
+
+    return (
+        <div className="skills-section" id="skills">
+            <canvas id="skills-bg" className="skills-bg"></canvas>
+
+            {/* Section title & subtitle */}
+            <h2
+                className="skills-title animatable"
+                ref={(el) => (animRefs.current[0] = el)}
+            >
+                &lt;skills & expertise /&gt;
+            </h2>
+            <h2
+                className="skills-subtitle animatable"
+                ref={(el) => (animRefs.current[1] = el)}
+            >
+                WHAT CAN I DO?
+            </h2>
+
+            {/* Skill cards */}
+            <div className="skills-grid">
+                {skills.map((skill, index) => (
+                    <div
+                        className={`skill-card animatable delay-${index}`}
+                        key={index}
+                        ref={(el) => (animRefs.current[index + 2] = el)}
+                    >
+                        <div className="logos">
+                            {skill.logos.map((logo, idx) => (
+                                <img src={logo} alt="tech-logo" key={idx} />
+                            ))}
+                        </div>
+                        <h3>{skill.title}</h3>
+                        <p>{skill.description}</p>
+                    </div>
+                ))}
             </div>
-            <h3>{skill.title}</h3>
-            <p>{skill.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Skills;

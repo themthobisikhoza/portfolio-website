@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import "./Contact.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Earth from "../Models/Earth.jsx"; 
+import Earth from "../Models/Earth.jsx";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +11,30 @@ const Contact = () => {
         email: "",
         message: "",
     });
+
+    const contactRefs = useRef([]);
+
+    // IntersectionObserver to animate on scroll
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    } else {
+                        entry.target.classList.remove('animate'); // allow re-trigger
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        contactRefs.current.forEach(el => {
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,14 +59,24 @@ const Contact = () => {
 
     return (
         <div className="contact-section" id="contact">
-            <h2 className="contact-title">&lt;contact /&gt;</h2>
-            <h3 className="contact-subtitle">LET'S YAP</h3>
+            <h2
+                ref={el => contactRefs.current[0] = el}
+                className="contact-title animatable animate-delay-0"
+            >
+                &lt;contact /&gt;
+            </h2>
+            <h3
+                ref={el => contactRefs.current[1] = el}
+                className="contact-subtitle animatable animate-delay-1"
+            >
+                LET'S YAP
+            </h3>
 
-            {/* 2-COLUMN LAYOUT */}
             <div className="contact-content">
-
-                {/* LEFT COLUMN — EARTH MODEL */}
-                <div className="contact-3d">
+                <div
+                    ref={el => contactRefs.current[2] = el}
+                    className="contact-3d animatable animate-delay-2"
+                >
                     <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
                         <ambientLight intensity={0.7} />
                         <directionalLight position={[5, 5, 5]} intensity={2} />
@@ -55,8 +89,11 @@ const Contact = () => {
                     </Canvas>
                 </div>
 
-                {/* RIGHT COLUMN — FORM */}
-                <form className="contact-form" onSubmit={handleSubmit}>
+                <form
+                    ref={el => contactRefs.current[3] = el}
+                    className="contact-form animatable animate-delay-3"
+                    onSubmit={handleSubmit}
+                >
                     <input
                         type="text"
                         name="name"
@@ -85,7 +122,6 @@ const Contact = () => {
 
                     <button type="submit">Send Message</button>
                 </form>
-
             </div>
         </div>
     );

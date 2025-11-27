@@ -215,6 +215,12 @@ body::-webkit-scrollbar {
         height: 28px;
     }
 
+    .navbar-toggler:focus,
+    .navbar-toggler:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
     /* Hide brand */
     .navbar-brand {
         display: none !important;
