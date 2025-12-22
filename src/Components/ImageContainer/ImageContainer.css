@@ -1,0 +1,20 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+    .image-container .image {
+        width: 500px; /* or whatever size you want */
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .image-container .date {
+        margin-top: 8px;
+        color: #fff;
+        font-size: 0.9rem;
+        font-family: Poppins;
+        text-align: end;
+    }

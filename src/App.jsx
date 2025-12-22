@@ -8,28 +8,37 @@ import CustomCursor from "./Components/CustomCursor/CustomCursor";
 import Contact from "./Components/Contact/Contact";
 import Projects from "./Components/Projects/Projects";
 import Footer from "./Components/Footer/Footer";
+import Experience from "./Components/Experience/Experience";
 
 const App = () => {
   const [darkBg, setDarkBg] = useState(false);
 
-  useEffect(() => {
-    const aboutSection = document.querySelector(".about-section");
+    useEffect(() => {
+        const sections = document.querySelectorAll(
+            ".about-section, .carousel-section"
+        );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setDarkBg(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.3 }
-    );
+        const visibilityMap = new Map();
 
-    if (aboutSection) observer.observe(aboutSection);
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    visibilityMap.set(entry.target, entry.isIntersecting);
+                });
 
-    return () => {
-      if (aboutSection) observer.unobserve(aboutSection);
-    };
-  }, []);
+                const anyDarkVisible = [...visibilityMap.values()].some(Boolean);
+                setDarkBg(anyDarkVisible);
+            },
+            {
+                threshold: 0.3,
+            }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
+    }, []);
+
 
   return (
     <div className="app-wrapper">
@@ -39,11 +48,13 @@ const App = () => {
         <Navbar />
         <Hero />
         <About />
+        <Experience />
         <Projects/>
         <Skills/>
         <hr className="section-divider" />
         <Contact />
         <Footer />
+
     </div>
 
   );

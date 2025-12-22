@@ -1,0 +1,104 @@
+.carousel-section {
+    height: 120vh; /* tall enough to scroll horizontally */
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center; /* center sticky container vertically */
+    scroll-behavior: smooth;
+}
+
+.sticky-container {
+    display: flex;
+    gap: 2rem;
+    padding-left: 800px; /* initial horizontal offset */
+    width: max-content; /* ensure row is wider than viewport */
+    will-change: transform;
+}
+
+.image-container {
+    flex: 0 0 auto;
+}
+
+    .image-container img {
+        width: 250px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .image-container .date {
+        color: #fff;
+        text-align: center;
+        margin-top: 8px;
+    }
+
+.experience-title {
+    position: absolute;
+    top: 20px; /* top of viewport */
+    left: 45%;
+    margin-top: 130px;
+    transform: translateX(-50%);
+    font-size: clamp(1.5rem, 6vw, 30px);
+    text-align: center;
+    color: #0cc0df;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 10;
+}
+
+    .experience-title h2 {
+        font-size: clamp(1.5rem, 4vw, 30px);
+    }
+
+.experience-subtitle {
+    font-size: 15px;
+    margin: 5px 0 0 0;
+    color: lightgray;
+    margin-top: 130px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.05ch;
+    position: absolute;
+    top: 65px; /* adjust vertical position */
+    left: 48%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+
+/* ========================= */
+/* ON-SCROLL BLUR ANIMATIONS */
+/* ========================= */
+
+@keyframes blurFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
+
+/* Animatable initial state */
+.animatable {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+}
+
+.animate {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.animate-delay-0 {
+    transition-delay: 0s;
+}
+
+.animate-delay-1 {
+    transition-delay: 0.2s;
+}
