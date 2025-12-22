@@ -74,6 +74,10 @@
   animation: gradientShift 6s ease infinite;
 }
 
+.round-outline-btn {
+    margin-right: 15px;
+}
+
 /* gradient animation */
 @keyframes gradientShift {
   0%   { background-position: 0% 50%; }

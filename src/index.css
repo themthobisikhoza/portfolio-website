@@ -234,10 +234,10 @@ body::-webkit-scrollbar {
     left: 0;
     width: 100%;
     z-index: 99999;
-    height: 78px; /* set desired height */
-    padding: 0 1rem; /* remove extra padding */
+    height: 78px; 
+    padding: 0 1rem; 
     display: flex;
-    align-items: center; /* vertically center content */
+    align-items: center;
     transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
 

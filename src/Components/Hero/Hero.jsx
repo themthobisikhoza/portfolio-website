@@ -54,7 +54,7 @@ const Hero = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // 🎯 IntersectionObserver for about + animations
+    // IntersectionObserver for about + animations
     useEffect(() => {
         const observer = new IntersectionObserver(
             entries => {

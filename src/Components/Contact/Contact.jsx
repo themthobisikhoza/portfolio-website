@@ -63,7 +63,7 @@ const Contact = () => {
                 ref={el => contactRefs.current[0] = el}
                 className="contact-title animatable animate-delay-0"
             >
-                &lt;contact /&gt;
+                &lt;contact me /&gt;
             </h2>
             <h3
                 ref={el => contactRefs.current[1] = el}

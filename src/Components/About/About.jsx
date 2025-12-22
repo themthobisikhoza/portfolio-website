@@ -80,12 +80,19 @@ const About = () => {
                     ref={el => elementsRef.current[5] = el}
                     className="round-outline-btn animatable animate-delay-5"
                 >
-                    <a
-                        href="/Mthobisi Khoza.pdf"
-                        download
-                        style={{ color: "inherit", textDecoration: "none" }}
-                    >
-                        DOWNLOAD CV
+                    <a href="#projects"
+                        style={{ color: "inherit", textDecoration: "none"}}>
+                        VIEW MY WORK
+                    </a>
+                </button>
+
+                <button
+                    ref={el => elementsRef.current[6] = el}
+                    className="round-outline-btn animatable animate-delay-5"
+                >
+                    <a href="mailto:khozamthobisi7@gmail.com" target="_blank" rel="noopener noreferrer"
+                        style={{ color: "inherit", textDecoration: "none" }}>
+                        CONTACT ME
                     </a>
                 </button>
             </div>

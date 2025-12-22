@@ -31,16 +31,16 @@ const Navbar = () => {
                 <CCollapse className="navbar-collapse justify-content-end" visible={visible}>
                     <CNavbarNav>
                         <CNavItem>
-                            <CNavLink href="#about" className="mx-5 mt-3 text-white">ABOUT ME</CNavLink>
+                            <CNavLink href="#about" className="mx-4 mt-3 text-white">ABOUT ME</CNavLink>
                         </CNavItem>
                         <CNavItem>
-                            <CNavLink href="#skills" className="mx-5 mt-3 text-white">SKILLS</CNavLink>
+                            <CNavLink href="#skills" className="mx-4 mt-3 text-white">SKILLS</CNavLink>
                         </CNavItem>
                         <CNavItem>
-                            <CNavLink href="#projects" className="mx-5 mt-3 text-white">PROJECTS</CNavLink>
+                            <CNavLink href="#projects" className="mx-4 mt-3 text-white">PROJECTS</CNavLink>
                         </CNavItem>
                         <CNavItem>
-                            <CNavLink href="#contact" className="mx-5 mt-3 text-white">LET'S YAP</CNavLink>
+                            <CNavLink href="#contact" className="mx-4 mt-3 text-white">LET'S YAP</CNavLink>
                         </CNavItem>
                         <CNavItem>
                             <button className="round-outline-btn">
