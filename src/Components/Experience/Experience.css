@@ -20,14 +20,15 @@
 }
 
     .image-container img {
-        width: 250px;
+        width: 400px;
         height: auto;
         border-radius: 10px;
+        margin-bottom: 10px;
     }
 
     .image-container .date {
         color: #fff;
-        text-align: center;
+        text-align: left;
         margin-top: 8px;
     }
 

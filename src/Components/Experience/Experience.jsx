@@ -8,11 +8,32 @@ import Four from "../../assets/images/Four.jpg";
 import ImageContainer from "../ImageContainer/ImageContainer";
 
 const images = [
-    { src: One, desc: "30 June 2024" },
-    { src: Two, desc: "15 July 2024" },
-    { src: Three, desc: "22 August 2024" },
-    { src: Four, desc: "10 Sept 2024" }
+    {
+        src: One,
+        title: "A-STEP & CUADS Tutor",
+        subtitle: "Business Calculations (Statistics)",
+        date: "June 2024 – October 2024"
+    },
+    {
+        src: Two,
+        title: "1st year and 3rd year overall Top Achiever",
+        subtitle: "University of the Free State",
+        date: "October 2022 & September 2024"
+    },
+    {
+        src: Three,
+        title: "BSc in Computer Science",
+        subtitle: "University of the Free State",
+        date: "February 2022 – November 2024"
+    },
+    {
+        src: Four,
+        title: "Data Analyst Trainee",
+        subtitle: "Auditor-General South Africa | Pretoria",
+        date: "April 2025 – Present"
+    }
 ];
+
 
 const Experience = () => {
     const sectionRef = useRef(null);
@@ -67,7 +88,13 @@ const Experience = () => {
                 transition={{ type: "spring", stiffness: 50, damping: 20 }}
             >
                 {images.map((img, i) => (
-                    <ImageContainer key={i} imageSource={img.src} description={img.desc} />
+                    <ImageContainer
+                        key={i}
+                        imageSource={img.src}
+                        title={img.title}
+                        subtitle={img.subtitle}
+                        date={img.date}
+                    />
                 ))}
             </motion.div>
 

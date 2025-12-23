@@ -1,20 +1,38 @@
 .image-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 10px;
+    align-items: flex-start;
+    margin: 6px;
 }
 
-    .image-container .image {
-        width: 500px; /* or whatever size you want */
-        height: auto;
-        border-radius: 10px;
-    }
+.image {
+    width: 400px;
+    border-radius: 8px;
+}
 
-    .image-container .date {
-        margin-top: 8px;
-        color: #fff;
-        font-size: 0.9rem;
-        font-family: Poppins;
-        text-align: end;
-    }
+.text-content {
+    width: 250px;
+    margin-top: 6px;
+    text-align: left;
+}
+
+.title {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #fff;
+    font-family: Poppins;
+}
+
+.subtitle {
+    margin: 2px 0;
+    font-size: 0.8rem;
+    color: #ccc;
+    font-family: Poppins;
+}
+
+.date {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    color: #aaa;
+    font-family: Poppins;
+}
