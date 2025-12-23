@@ -69,7 +69,7 @@ const Contact = () => {
                 ref={el => contactRefs.current[1] = el}
                 className="contact-subtitle animatable animate-delay-1"
             >
-                LET'S YAP
+                LET'S YAP!<br /><br /> I'D LOVE TO TALK TO YOU. SHARE YOUR DEBUGGING HORROR STORIES OR MAYBE HIRE ME. I AM ALWAYS DOWN FOR A GOOD YAP SESSION.
             </h3>
 
             <div className="contact-content">
