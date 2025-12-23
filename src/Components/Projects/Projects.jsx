@@ -69,6 +69,9 @@ const Projects = () => {
                 className="projects-subtitle animatable animate-delay-1"
             >
                 WHAT I’VE BUILT
+                <span className="projects-subtitle-note">
+                    Every project starts with one goal: build something genuinely useful, scalable, and clean, and if it doesn’t look cool while doing it, I’m probably not done yet.
+                </span>
             </h3>
 
             <div className="projects-container">

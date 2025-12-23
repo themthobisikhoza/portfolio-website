@@ -16,7 +16,7 @@ const images = [
     },
     {
         src: Two,
-        title: "1st year and 3rd year overall Top Achiever",
+        title: "1st year and 3rd year overall Top Achiever ",
         subtitle: "University of the Free State",
         date: "October 2022 & September 2024"
     },
@@ -80,7 +80,11 @@ const Experience = () => {
                 className="experience-subtitle animatable animate-delay-1"
             >
                 WHERE HAVE I BEEN?
+                <br /><br /><span className="experience-subtitle-note">
+                    A quick timeline of where I’ve learned, worked, grown, and occasionally figured things out the hard way.
+                </span>
             </h4>
+
 
             <motion.div
                 className="sticky-container"

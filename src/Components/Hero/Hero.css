@@ -192,18 +192,18 @@
         transform: translateY(0px); /* no need to move it */
     }
     /* ------ Title under subtitle ------ */
-
-    .hero-title {
+    .hero-title,
+    .hero-title.rotate,
+    .hero-title.hero-animatable {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+        filter: none !important;
         font-size: clamp(2.2rem, 14vw, 90px);
         line-height: 1;
         margin-top: 10px;
-        transform: none;
-        transition: none !important;
     }
 
-        .hero-title.rotate {
-            transform: none !important; /* completely disable rotate */
-        }
     /* ------ Avatar under the text ------ */
 
     .avatar-wrapper {

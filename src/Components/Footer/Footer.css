@@ -15,3 +15,23 @@
     font-size: 14px !important;
     font-family: 'Poppins';
 }
+
+/* Tablet / small screens */
+@media (max-width: 768px) {
+    .glass-footer {
+        padding: 12px 8%;
+        font-size: 13px;
+    }
+}
+
+/* Mobile / extra small screens */
+@media (max-width: 480px) {
+    .glass-footer {
+        padding: 10px 5%;
+        font-size: 12px;
+    }
+
+    .footer-text {
+        font-size: 11px !important;
+    }
+}
