@@ -51,7 +51,7 @@ const Experience = () => {
         offset: ["start start", "end end"] // scroll mapped to full section
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], [0, -1200]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
     // IntersectionObserver for text animation
     useEffect(() => {

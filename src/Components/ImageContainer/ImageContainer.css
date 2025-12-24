@@ -7,32 +7,32 @@
 
 .image {
     width: 400px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .text-content {
     width: 250px;
-    margin-top: 6px;
+    margin-top: 20px;
     text-align: left;
 }
 
 .title {
-    margin: 0;
     font-size: 0.95rem;
     color: #fff;
     font-family: Poppins;
+    margin: 0;
 }
 
 .subtitle {
-    margin: 2px 0;
     font-size: 0.8rem;
     color: #ccc;
     font-family: Poppins;
+    margin: 2px 0;
 }
 
 .date {
-    margin-top: 4px;
     font-size: 0.75rem;
-    color: #aaa;
+    color: #fff;
     font-family: Poppins;
+    margin-top: 8px;
 }
