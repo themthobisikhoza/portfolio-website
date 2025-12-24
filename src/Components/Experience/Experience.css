@@ -1,17 +1,24 @@
+/* ========================= */
+/* DESKTOP HORIZONTAL SCROLL */
+/* ========================= */
+
 .carousel-section {
-    height: 135vh; /* tall enough to scroll horizontally */
+    height: 200vh; /* vertical scroll distance that drives horizontal movement */
     background-color: transparent;
     position: relative;
-    display: flex;
-    align-items: center; /* center sticky container vertically */
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
+/* Sticky horizontal row */
 .sticky-container {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     gap: 2rem;
-    padding-left: 800px; /* initial horizontal offset */
-    width: max-content; /* ensure row is wider than viewport */
+    padding-left: 10vw; /* responsive offset instead of fixed px */
+    width: max-content; /* force horizontal overflow */
     will-change: transform;
 }
 
@@ -32,9 +39,13 @@
         margin-top: 8px;
     }
 
+/* ========================= */
+/* TITLES */
+/* ========================= */
+
 .experience-title {
     position: absolute;
-    top: 20px; /* top of viewport */
+    top: 20px;
     left: 45%;
     margin-top: 130px;
     transform: translateX(-50%);
@@ -57,7 +68,7 @@
     font-family: 'Poppins', sans-serif;
     letter-spacing: 0.05ch;
     position: absolute;
-    top: 65px; /* adjust vertical position */
+    top: 65px;
     left: 29%;
     transform: translateX(-50%);
     text-align: center;
@@ -92,7 +103,6 @@
     }
 }
 
-/* Animatable initial state */
 .animatable {
     opacity: 0;
     filter: blur(10px);
@@ -114,6 +124,10 @@
     transition-delay: 0.2s;
 }
 
+/* ========================= */
+/* MOBILE (UNCHANGED) */
+/* ========================= */
+
 @media (max-width: 768px) {
 
     .carousel-section {
@@ -125,12 +139,13 @@
     }
 
     .sticky-container {
+        position: static;
+        transform: none !important;
         flex-direction: column;
         align-items: center;
         padding-left: 0;
         gap: 1.5rem;
         width: 100%;
-        transform: none !important;
     }
 
     .image-container {
@@ -185,7 +200,6 @@
     }
 }
 
-
 @media (max-width: 480px) {
 
     .image-container img {
@@ -196,16 +210,15 @@
 
     .experience-title {
         font-size: 1.4rem;
-        padding: 0px 0px 0px 0px;
-        margin: 0px 0px -30px 0px
-        
+        margin: 0 0 -30px 0;
     }
 
     .experience-subtitle {
         font-size: 0.7rem;
-        margin: -8px 0px 40px 0px
+        margin: -8px 0 40px 0;
     }
 
     .experience-subtitle-note {
         visibility: hidden;
     }
+}

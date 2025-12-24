@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Hero.css';
 import Avatar from '../../../src/assets/images/Avatar.png';
+import EmailIcon from "../../assets/icons/email.png";
+import GitHubIcon from "../../assets/icons/github.png";
+import LinkedInIcon from "../../assets/icons/linkedin.png";
 
 const Hero = () => {
     const titleRef = useRef(null);
@@ -113,13 +116,13 @@ const Hero = () => {
                 className="social-icons hero-animatable hero-animate-delay-2"
             >
                 <a href="mailto:khozamthobisi7@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <img src="../../../src/assets/icons/email.png" alt="Email" />
+                    <img src={EmailIcon} alt="Email" />
                 </a>
-                <a href="https://github.com/BeAHappyMoron" target="_blank" rel="noopener noreferrer">
-                    <img src="../../../src/assets/icons/github.png" alt="GitHub" />
+                <a href="https://github.com/themthobisikhoza" target="_blank" rel="noopener noreferrer">
+                    <img src={GitHubIcon} alt="GitHub" />
                 </a>
                 <a href="https://www.linkedin.com/in/mthobisi-khoza/" target="_blank" rel="noopener noreferrer">
-                    <img src="../../../src/assets/icons/linkedin.png" alt="LinkedIn" />
+                    <img src={LinkedInIcon} alt="LinkedIn" />
                 </a>
             </div>
 
