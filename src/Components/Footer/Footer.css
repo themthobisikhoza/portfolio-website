@@ -1,8 +1,9 @@
 .glass-footer {
     width: 100%;
     padding: 15px 10%;
-    backdrop-filter: blur(18px);
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.07); /* keep very transparent */
+    backdrop-filter: blur(18px); /* blur effect */
+    -webkit-backdrop-filter: blur(18px); /* Safari support */
     border-radius: 0 0 15px 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
@@ -12,10 +13,10 @@
     z-index: 10;
 }
 
+/* Ensure child text inherits styling */
 .footer-text {
-    position: relative;
-    font-size: 14px !important;
-    font-family: 'Poppins';
+    font-size: 14px;
+    margin: 3px 0;
 }
 
 /* Tablet / small screens */

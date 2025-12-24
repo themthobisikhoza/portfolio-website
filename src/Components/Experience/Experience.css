@@ -1,34 +1,36 @@
-/* ========================= */
-/* DESKTOP HORIZONTAL SCROLL */
-/* ========================= */
+/* ========================= */ /* DESKTOP HORIZONTAL SCROLL */ /* ========================= */
 
 .carousel-section {
-    height: 120vh;
+    height: 130vh; /* vertical scroll distance that drives horizontal movement */
+    background-color: transparent;
     position: relative;
+    scroll-behavior: smooth;
     overflow: hidden;
 }
-
 /* Sticky horizontal row */
+
 .sticky-container {
     position: sticky;
     top: 50%;
+    transform: translateY(-50%);
     display: flex;
     gap: 2rem;
-    padding-left: 10vw;
-    width: max-content;
-    transform: translateY(-50%);
+    padding-left: 10vw; /* responsive offset instead of fixed px */
+    width: max-content; /* force horizontal overflow */
+    will-change: transform;
 }
 
 .image-container {
     flex: 0 0 auto;
 }
 
-/* REMOVE duplicate image sizing here */
-/* Image sizing lives ONLY in ImageContainer.css */
-
-/* ========================= */
-/* TITLES */
-/* ========================= */
+    .image-container img {
+        width: 400px;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+/* ========================= */ /* TITLES */ /* ========================= */
 
 .experience-title {
     position: absolute;
@@ -71,16 +73,27 @@
     text-transform: uppercase;
     padding-bottom: 60px;
 }
+/* ========================= */ /* ON-SCROLL BLUR ANIMATIONS */ /* ========================= */
 
-/* ========================= */
-/* ON-SCROLL TEXT ANIMATION */
-/* ========================= */
+@keyframes blurFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
 
 .animatable {
     opacity: 0;
     filter: blur(10px);
     transform: translateY(20px);
-    transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
 }
 
 .animate {
@@ -94,15 +107,11 @@
 }
 
 .animate-delay-1 {
-    transition-delay: 0.15s;
+    transition-delay: 0.2s;
 }
-
-/* ========================= */
-/* MOBILE (UNCHANGED) */
-/* ========================= */
+/* ========================= */ /* MOBILE (UNCHANGED) */ /* ========================= */
 
 @media (max-width: 768px) {
-
     .carousel-section {
         height: auto;
         padding: 120px 0 40px;
@@ -117,21 +126,79 @@
         flex-direction: column;
         align-items: center;
         padding-left: 0;
+        gap: 1.5rem;
         width: 100%;
     }
 
-    .experience-title,
-    .experience-subtitle {
+    .image-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+        .image-container img {
+            width: 90%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .image-container .text-content {
+            width: 90%;
+            max-width: 320px;
+            margin: 20px auto 0;
+            text-align: center;
+        }
+
+        .image-container .title {
+            font-size: 0.85rem;
+        }
+
+        .image-container .subtitle {
+            font-size: 0.7rem;
+        }
+
+        .image-container .date {
+            font-size: 0.65rem;
+            text-align: center;
+        }
+
+    .experience-title, .experience-subtitle {
         position: relative;
+        left: 0;
         transform: none;
-        margin-bottom: 20px;
         text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .experience-title {
+        margin-top: 0;
+        font-size: clamp(1.5rem, 6vw, 26px);
+    }
+
+    .experience-subtitle {
+        margin-top: 6px;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
+    .image-container img {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 20px;
+    }
+
+    .experience-title {
+        font-size: 1.4rem;
+        margin: 0 0 -30px 0;
+    }
+
+    .experience-subtitle {
+        font-size: 0.7rem;
+        margin: -8px 0 40px 0;
+    }
 
     .experience-subtitle-note {
-        display: none;
+        visibility: hidden;
     }
 }
