@@ -5,6 +5,7 @@ import One from "../../assets/images/One.jpg";
 import Two from "../../assets/images/Two.jpg";
 import Three from "../../assets/images/Three.jpg";
 import Four from "../../assets/images/Four.jpg";
+import Five from "../../assets/images/Five.png";
 import ImageContainer from "../ImageContainer/ImageContainer";
 
 const images = [
@@ -31,6 +32,12 @@ const images = [
         title: "Data Analyst Trainee",
         subtitle: "Auditor-General South Africa | Pretoria",
         date: "April 2025 – Present"
+    },
+    {
+        src: Five,
+        title: "BSc (Hons) in Computer Science",
+        subtitle: "University of Pretoria",
+        date: "Starting February 2026"
     }
 ];
 
