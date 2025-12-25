@@ -116,6 +116,7 @@ body::-webkit-scrollbar {
 
 .app-wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .bg-layer {
