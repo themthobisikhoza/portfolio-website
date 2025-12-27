@@ -48,12 +48,11 @@ const App = () => {
         <Navbar />
         <Hero />
         <About />
-        <Experience />
+
         <Projects/>
         <Skills/>
         <hr className="section-divider" />
         <Contact />
-        <Footer />
 
     </div>
 
