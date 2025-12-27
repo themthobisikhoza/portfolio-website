@@ -53,6 +53,7 @@ const App = () => {
         <Skills/>
         <hr className="section-divider" />
         <Contact />
+        <Footer />
 
     </div>
 
