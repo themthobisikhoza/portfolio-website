@@ -47,7 +47,7 @@ const Projects = () => {
             description: "A desktop data cleaning tool made with Python, Apache Spark and Streamlit for preprocessing datasets.",
             image: DataCleanerImg,
             languages: ["Python", "Streamlit", "Pyspark"],
-            github: "https://github.com/themthobisikhoza/data-cleaner",
+            github: "https://github.com/themthobisikhoza/automated-data-cleaner",
             demo: "https://yourportfolio.com"
         },
         {
