@@ -7,7 +7,7 @@ import Skills from "./Components/Skills/Skills";
 import CustomCursor from "./Components/CustomCursor/CustomCursor";
 import Contact from "./Components/Contact/Contact";
 import Projects from "./Components/Projects/Projects";
-import Experience from "./Components/Footer/Footer";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   const [darkBg, setDarkBg] = useState(false);
@@ -51,8 +51,9 @@ const App = () => {
         <Projects/>
         <Skills/>
         <hr className="section-divider" />
-        <Contact />
+          <Contact />
         <Footer />
+        
     </div>
 
   );
