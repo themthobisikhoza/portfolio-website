@@ -32,27 +32,27 @@
   font-weight: normal;
   font-style: normal;
 }
+
 body, button, a {
   cursor: none;
 }
 
 body {
-  background: radial-gradient(circle, #1a195b 0%, #000000 100%);
-  background-size: 150% 150%;  /* start zoomed */
-  background-position: center;
-  animation: pulseBG 6s ease-in-out infinite;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: 'NuMono', sans-serif;
-  margin: 0;
-  overflow-x: hidden;  
-  overflow-y: auto;  
-  z-index: 1;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-
+    background: radial-gradient(circle, #1a195b 0%, #000000 100%);
+    background-size: 150% 150%; /* start zoomed */
+    background-position: center;
+    animation: pulseBG 6s ease-in-out infinite;
+    font-family: 'NuMono', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    /* Remove flex & justify-content */
+    display: block;
 }
+
 
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
@@ -115,9 +115,13 @@ body::-webkit-scrollbar {
 }
 
 .app-wrapper {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
 
 .bg-layer {
   position: fixed;
