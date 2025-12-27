@@ -171,6 +171,20 @@
     letter-spacing: 0.5px;
 }
 
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .project-links a.round-outline-btn {
+        font-size: 0.75rem;
+        padding: 6px 16px;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+
 
 @media (max-width: 900px) {
     .projects-3d {

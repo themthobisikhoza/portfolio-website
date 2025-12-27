@@ -39,13 +39,16 @@ const Projects = () => {
             description: "A personal portfolio website built with React, showcasing projects and skills.",
             image: PortfolioImg,
             languages: ["React", "R3F", "CSS", "JavaScript"],
+            github: "https://github.com/themthobisikhoza/portfolio-website",
         },
         {
             title: "Data Cleaner",
             subtitle: "Python & Streamlit",
-            description: "A desktop data cleaning tool made with Python and Streamlit for preprocessing datasets.",
+            description: "A desktop data cleaning tool made with Python, Apache Spark and Streamlit for preprocessing datasets.",
             image: DataCleanerImg,
-            languages: ["Python", "Streamlit", "Pandas"],
+            languages: ["Python", "Streamlit", "Pyspark"],
+            github: "https://github.com/themthobisikhoza/data-cleaner",
+            demo: "https://yourportfolio.com"
         },
         {
             title: "Upcoming Project",
@@ -93,6 +96,20 @@ const Projects = () => {
                             <h4>{proj.title}</h4>
                             <h5>{proj.subtitle}</h5>
                             <p>{proj.description}</p>
+
+                            <div className="project-links">
+                                {proj.github && (
+                                    <a href={proj.github} target="_blank" rel="noopener noreferrer" className="round-outline-btn">
+                                        GitHub Repo
+                                    </a>
+                                )}
+                                {proj.demo && (
+                                    <a href={proj.demo} target="_blank" rel="noopener noreferrer" className="round-outline-btn">
+                                        Live Demo
+                                    </a>
+                                )}
+                            </div>
+
                         </div>
                     ))}
                 </div>

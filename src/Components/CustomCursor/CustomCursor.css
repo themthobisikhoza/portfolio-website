@@ -29,3 +29,9 @@ a:hover, button:hover {
   width: 27px;
   height: 27px;
 }
+
+@media (max-width: 768px) {
+    .cursor {
+        display: none;
+    }
+}
