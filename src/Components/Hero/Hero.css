@@ -49,13 +49,12 @@
     line-height: 0.9;
     text-transform: lowercase;
     transform: translateY(5px);
-    transition: transform 6s ease-in-out, opacity 4s ease-in-out;
+    transition: transform 2s ease-in-out, opacity 1.5s ease-in-out;
 }
 
     .hero-title.rotate {
-        opacity: 1;
-        font-size: clamp(3rem, 12vw, 200px);
         transform: translateY(85vh) rotate(90deg) translateY(40vh);
+        opacity: 1;
     }
 
 /* ========================= */
@@ -153,11 +152,45 @@
     }
 }
 
-
-
 /* ========================= */
-/* MOBILE — under 600px */
+/* ON-SCROLL / LOAD ANIMATION */
 /* ========================= */
+
+.hero-animatable {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+    transition: all 0.8s ease;
+}
+
+.hero-animate {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.hero-title.hero-animatable {
+    filter: none !important;
+}
+
+/* optional stagger delays */
+.hero-animate-delay-0 {
+    transition-delay: 0s;
+}
+
+.hero-animate-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.hero-animate-delay-2 {
+    transition-delay: 0.4s;
+}
+
+.hero-animate-delay-3 {
+    transition-delay: 0.6s;
+}
+
+/* ========================= */ /* MOBILE — under 600px */ /* ========================= */
 
 @media (max-width: 600px) {
     .hero-section {
@@ -192,9 +225,8 @@
         transform: translateY(0px); /* no need to move it */
     }
     /* ------ Title under subtitle ------ */
-    .hero-title,
-    .hero-title.rotate,
-    .hero-title.hero-animatable {
+
+    .hero-title, .hero-title.rotate, .hero-title.hero-animatable {
         transform: none !important;
         opacity: 1 !important;
         transition: none !important;
@@ -203,7 +235,6 @@
         line-height: 1;
         margin-top: 10px;
     }
-
     /* ------ Avatar under the text ------ */
 
     .avatar-wrapper {
@@ -236,49 +267,3 @@
         width: 100%;
     }
 }
-
-/* ========================= */
-/* ON-SCROLL / LOAD ANIMATION */
-/* ========================= */
-
-.hero-animatable {
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(10px); /* default blur for most elements */
-    transition: all 0.8s ease;
-}
-
-/* Fade-in + slide up animation */
-.hero-animate {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0); /* remove blur */
-}
-
-/* --- Remove blur specifically for the hero title --- */
-.hero-title.hero-animatable {
-    filter: none !important; /* ignore blur on title */
-}
-
-/* optional stagger delays */
-.hero-animate-delay-0 {
-    transition-delay: 0s;
-}
-
-.hero-animate-delay-1 {
-    transition-delay: 0.2s;
-}
-
-.hero-animate-delay-2 {
-    transition-delay: 0.4s;
-}
-
-.hero-animate-delay-3 {
-    transition-delay: 0.6s;
-}
-
-
-
-
-
-

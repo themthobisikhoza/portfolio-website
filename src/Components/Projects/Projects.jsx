@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./Projects.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Computer from "../Models/Computer"; // 3D model
+import Computer from "../Models/Computer"; 
 
 import PortfolioImg from "../../assets/images/Portfolio.png";
 import DataCleanerImg from "../../assets/images/DataCleaner.png";
@@ -18,7 +18,7 @@ const Projects = () => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate');
                     } else {
-                        entry.target.classList.remove('animate'); // remove to allow re-trigger
+                        entry.target.classList.remove('animate');
                     }
                 });
             },
