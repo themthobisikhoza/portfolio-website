@@ -171,26 +171,24 @@ body::-webkit-scrollbar {
         text-align: center;
     }
 
-    /* Overlay menu */
+    /* Overlay menu (instead of pushing content) */
     .navbar-collapse {
         position: absolute !important;
         top: 60px; /* height of navbar */
-        left: 0;
-        right: 0;
-        width: auto;
+        left: 25px;
+        width: 100%;
         z-index: 9999;
-        padding: 20px 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-
-        /* Keep mobile menu blur separate */
-        backdrop-filter: blur(18px);
-        background: rgba(255, 255, 255, 0.07);
-        border-radius: 0 0 15px 15px;
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 20px 0;
     }
+
+        /* Glassy background */
+        .navbar-collapse.show,
+        .navbar-collapse.collapsing {
+            backdrop-filter: blur(18px);
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 0 0 15px 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
 
     /* Center all menu items */
     .navbar-nav {
@@ -201,7 +199,7 @@ body::-webkit-scrollbar {
         gap: 8px;
     }
 
-    /* Container fix */
+    /* Fix alignment of container */
     .mobile-transparent-nav .container-fluid {
         position: relative;
         display: flex;
@@ -232,7 +230,6 @@ body::-webkit-scrollbar {
         display: none !important;
     }
 }
-
 
 /* Sticky navbar */
 .navbar-sticky {
