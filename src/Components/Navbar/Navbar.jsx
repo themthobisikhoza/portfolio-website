@@ -29,32 +29,59 @@ const Navbar = () => {
                     <img src={Logo} alt="MTHO." width="70" height="70" />
                 </CNavbarBrand>
                 <CCollapse className="navbar-collapse justify-content-end" visible={visible}>
-                    <CNavbarNav>
-                        <CNavItem>
-                            <CNavLink href="#about" className="mx-4 mt-3 text-white">ABOUT ME</CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#skills" className="mx-4 mt-3 text-white">SKILLS</CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#projects" className="mx-4 mt-3 text-white">PROJECTS</CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <CNavLink href="#contact" className="mx-4 mt-3 text-white">LET'S YAP</CNavLink>
-                        </CNavItem>
-                        <CNavItem>
-                            <button className="round-outline-btn">
-                                <a
-                                    href="/Mthobisi Khoza.pdf"
-                                    download
-                                    style={{ color: "inherit", textDecoration: "none" }}
-                                >
-                                    DOWNLOAD CV
-                                </a>
-                            </button>
-                        </CNavItem>
-                    </CNavbarNav>
-                </CCollapse>
+    <CNavbarNav>
+        <CNavItem>
+            <CNavLink
+                href="#about"
+                className="mx-4 mt-3 text-white"
+                onClick={() => window.innerWidth <= 600 && setVisible(false)}
+            >
+                ABOUT ME
+            </CNavLink>
+        </CNavItem>
+        <CNavItem>
+            <CNavLink
+                href="#skills"
+                className="mx-4 mt-3 text-white"
+                onClick={() => window.innerWidth <= 600 && setVisible(false)}
+            >
+                SKILLS
+            </CNavLink>
+        </CNavItem>
+        <CNavItem>
+            <CNavLink
+                href="#projects"
+                className="mx-4 mt-3 text-white"
+                onClick={() => window.innerWidth <= 600 && setVisible(false)}
+            >
+                PROJECTS
+            </CNavLink>
+        </CNavItem>
+        <CNavItem>
+            <CNavLink
+                href="#contact"
+                className="mx-4 mt-3 text-white"
+                onClick={() => window.innerWidth <= 600 && setVisible(false)}
+            >
+                LET'S YAP
+            </CNavLink>
+        </CNavItem>
+        <CNavItem>
+            <button
+                className="round-outline-btn"
+                onClick={() => window.innerWidth <= 600 && setVisible(false)}
+            >
+                <a
+                    href="/Mthobisi Khoza.pdf"
+                    download
+                    style={{ color: "inherit", textDecoration: "none" }}
+                >
+                    DOWNLOAD CV
+                </a>
+            </button>
+        </CNavItem>
+    </CNavbarNav>
+</CCollapse>
             </CContainer>
         </CNavbar>
     );

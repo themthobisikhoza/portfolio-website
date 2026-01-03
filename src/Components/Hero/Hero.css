@@ -165,9 +165,7 @@
     }
 }
 
-/* ========================= */
 /* MOBILE — under 600px */
-/* ========================= */
 
 @media (max-width: 600px) {
     .hero-section {
@@ -178,11 +176,12 @@
         text-align: center;
     }
 
-    /* Social icons repositioned above text */
+    /* ------ Social icons ABOVE the subtitle ------ */
+
     .social-icons {
-        position: static;
-        margin-top: 10px;
-        margin-bottom: 70px;
+        position: static; /* remove absolute */
+        margin-top: 10px; /* spacing above subtitle */
+        margin-bottom: 70px; /* spacing below */
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -194,18 +193,16 @@
             height: 23px;
             transform: rotate(0deg) !important;
         }
+    /* ------ Subtitle under icons ------ */
 
-    /* Subtitle adjustments */
     .hero-subtitle {
         font-size: 18px;
         margin-top: 35px;
-        transform: translateY(0px);
+        transform: translateY(0px); /* no need to move it */
     }
+    /* ------ Title under subtitle ------ */
 
-    /* Title adjustments */
-    .hero-title,
-    .hero-title.rotate,
-    .hero-title.hero-animatable {
+    .hero-title, .hero-title.rotate, .hero-title.hero-animatable {
         transform: none !important;
         opacity: 1 !important;
         transition: none !important;
@@ -214,8 +211,8 @@
         line-height: 1;
         margin-top: 10px;
     }
+    /* ------ Avatar under the text ------ */
 
-    /* Avatar adjustments */
     .avatar-wrapper {
         position: static;
         width: 260px;
@@ -228,14 +225,16 @@
         width: 300px;
         height: 300px;
         left: 50%;
-        top: -50px;
+        top: -50px; 
         transform: translateX(-50%);
         background: linear-gradient(135deg, #7f00ff, #0cc0df, #ff00c8, #0077ff);
         animation: gradientShift 6s ease infinite;
     }
 
     .avatar-wrapper:hover .avatar-circle {
-        transform: scale(1.2) translateX(-50%);
+        transform: scale(1.2);
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #7f00ff, #0cc0df, #ff00c8, #0077ff);
         background-size: 400% 400%;
         animation: gradientShift 6s ease infinite;
     }

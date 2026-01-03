@@ -240,7 +240,6 @@
 @media (max-width: 900px) {
     .about-section {
         padding: 40px 5%;
-        min-height: auto;
         align-items: center;
     }
 
@@ -263,26 +262,47 @@
     .about-title {
         margin-top: 80px;
         font-size: clamp(1.5rem, 6vw, 26px);
+        left: 0;
+    }
+
+    .about-subtitle {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .about-subtext {
+        font-size: 13px;
+        line-height: 1.4;
+        margin-bottom: 25px;
     }
 
     .about-image {
         width: 300px;
         height: 300px;
-        margin: 0;
+        margin-top: 0;
+        margin-right: 0;
     }
 
     .round-outline-btn {
         margin-top: 20px;
     }
-}
 
-@media (max-width: 768px) {
-    .carousel-section {
-        height: auto;
-        padding: 120px 0 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .experience-title, .experience-subtitle {
+        position: relative;
+        left: 0;
+        transform: none;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .experience-title {
+        margin-top: 0;
+        font-size: clamp(1.5rem, 6vw, 26px);
+    }
+
+    .experience-subtitle {
+        margin-top: 6px;
+        font-size: 0.8rem;
     }
 
     .sticky-container {
@@ -291,31 +311,86 @@
         flex-direction: column;
         align-items: center;
         padding-left: 0;
+        gap: 1.5rem;
         width: 100%;
     }
 
-    .experience-title,
-    .experience-subtitle {
-        position: relative;
-        left: 0;
-        transform: none;
-        margin-bottom: 20px;
-        text-align: center;
+    .image-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
     }
+
+        .image-container img {
+            width: 90%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .image-container .text-content {
+            width: 90%;
+            max-width: 320px;
+            margin: 20px auto 0;
+            text-align: center;
+        }
+
+        .image-container .title {
+            font-size: 0.85rem;
+        }
+
+        .image-container .subtitle {
+            font-size: 0.7rem;
+        }
+
+        .image-container .date {
+            font-size: 0.65rem;
+            text-align: center;
+        }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+
+    .carousel-section {
+        height: auto;
+        margin-top: -20px;
+        overflow: visible;
+    }
+
     .about-text {
         font-size: 16px;
     }
 
-    .about-subtext {
+    .about-title {
+        font-size: clamp(1.2rem, 8vw, 22px);
+    }
+
+    .about-subtitle {
         font-size: 12px;
     }
 
     .about-image {
         width: 220px;
         height: 220px;
+    }
+
+    .about-subtext {
+        font-size: 12px;
+    }
+
+    .image-container img {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 20px;
+    }
+
+    .experience-title {
+        font-size: 1.4rem;
+        margin: 110px 0 0 0;
+    }
+
+    .experience-subtitle {
+        font-size: 0.7rem;
+        margin: -30px 0 40px 0;
     }
 
     .experience-subtitle-note {

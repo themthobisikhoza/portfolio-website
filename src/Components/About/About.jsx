@@ -167,7 +167,7 @@ const About = () => {
                     ref={el => elementsRef.current[7] = el}
                     className="experience-title animatable animate-delay-0"
                 >
-                    &lt;my career /&gt;
+                    &lt;my journey /&gt;
                 </h4>
 
                 {/* Experience section subtitle */}
@@ -175,7 +175,7 @@ const About = () => {
                     ref={el => elementsRef.current[8] = el}
                     className="experience-subtitle animatable animate-delay-1"
                 >
-                    WHERE HAVE I BEEN?
+                    WHERE I HAVE BEEN
                     <br /><br />
                     <span className="experience-subtitle-note">
                         A quick timeline of where I’ve learned, worked, grown, and occasionally figured things out the hard way.
