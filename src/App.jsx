@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from './Components/Navbar/Navbar';
 import Hero from './Components/Hero/Hero';
 import About from './Components/About/About';
@@ -51,7 +52,7 @@ const App = () => {
         <Skills/>
         <hr className="section-divider" />
         <Contact />
-        
+        <Analytics />
     </div>
 
   );
