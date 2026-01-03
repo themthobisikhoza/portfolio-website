@@ -1,35 +1,54 @@
+/* ========================= */
+/* Custom Animated Cursor */
+/* ========================= */
 .cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, #0cc0df, #0077ff, #00f0ff);
-  background-size: 400% 400%;
-  animation: gradientShift 4s ease infinite;
-  z-index: 10000;
-  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, #0cc0df, #0077ff, #00f0ff);
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+    z-index: 10000;
+    transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
 }
 
+/* ========================= */
+/* Gradient animation */
+/* ========================= */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-/* Optional: enlarge cursor on hover */
+/* ========================= */
+/* Cursor interactions */
+/* ========================= */
 a:hover, button:hover {
-  cursor: none; /* normal cursor hidden */
+    cursor: none;
 }
 
 .cursor-hover {
-  width: 27px;
-  height: 27px;
+    width: 27px;
+    height: 27px;
 }
 
+/* ========================= */
+/* Responsive adjustments */
+/* ========================= */
 @media (max-width: 768px) {
     .cursor {
         display: none;

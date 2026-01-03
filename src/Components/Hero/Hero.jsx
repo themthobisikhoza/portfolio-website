@@ -6,19 +6,22 @@ import GitHubIcon from "../../assets/icons/github.png";
 import LinkedInIcon from "../../assets/icons/linkedin.png";
 
 const Hero = () => {
-    const titleRef = useRef(null);
+    // Refs 
+    const animRefs = useRef([]); 
+
+    // State
     const [rotate, setRotate] = useState(false);
 
-    // 🌟 Animation refs
-    const animRefs = useRef([]);
-
-    // 🎇 Particle Background
+    // Particle background effect
     useEffect(() => {
         const canvas = document.getElementById('hero-bg');
         const ctx = canvas.getContext('2d');
+
+        // Set canvas to full window size
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        // Create particles
         const particles = [];
         const particleCount = 80;
         for (let i = 0; i < particleCount; i++) {
@@ -31,6 +34,7 @@ const Hero = () => {
             });
         }
 
+        // Animate particles
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => {
@@ -39,9 +43,11 @@ const Hero = () => {
                 ctx.fillStyle = '#0cc0df';
                 ctx.fill();
 
+                // Move particles
                 p.x += p.dx;
                 p.y += p.dy;
 
+                // Bounce on edges
                 if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
                 if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
             });
@@ -49,15 +55,17 @@ const Hero = () => {
         }
         animate();
 
+        // Handle window resize
         const handleResize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
         window.addEventListener('resize', handleResize);
+
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // IntersectionObserver for about + animations
+    // Scroll animations using IntersectionObserver
     useEffect(() => {
         const observer = new IntersectionObserver(
             entries => {
@@ -65,13 +73,14 @@ const Hero = () => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('hero-animate');
                     } else {
-                        entry.target.classList.remove('hero-animate'); // allow re-trigger
+                        entry.target.classList.remove('hero-animate'); 
                     }
                 });
             },
             { threshold: 0.1 }
         );
 
+        // Observe all animatable refs
         animRefs.current.forEach(el => {
             if (el) observer.observe(el);
         });
@@ -79,23 +88,29 @@ const Hero = () => {
         return () => observer.disconnect();
     }, []);
 
-    // Scroll-triggered rotation (existing)
+    // Rotate title when about section enters view
     useEffect(() => {
         const aboutSection = document.querySelector(".about-section");
+        if (!aboutSection) return;
+
         const rotateObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => setRotate(entry.isIntersecting));
             },
             { threshold: 0.3 }
         );
-        if (aboutSection) rotateObserver.observe(aboutSection);
-        return () => { if (aboutSection) rotateObserver.unobserve(aboutSection); };
+
+        rotateObserver.observe(aboutSection);
+
+        return () => rotateObserver.unobserve(aboutSection);
     }, []);
 
     return (
         <div className='hero-section' id="hero">
+            {/* Background particles */}
             <canvas id="hero-bg" className="hero-bg"></canvas>
 
+            {/* Hero text content */}
             <div className='hero-content'>
                 <h4
                     ref={el => animRefs.current[0] = el}
@@ -107,10 +122,12 @@ const Hero = () => {
                     ref={el => animRefs.current[1] = el}
                     className={`hero-title hero-animatable hero-animate-delay-1 ${rotate ? "rotate" : ""}`}
                 >
-                    mthobisi <br /><span style={{ color: '#0cc0df' }}>khoza</span>
+                    mthobisi <br />
+                    <span style={{ color: '#0cc0df' }}>khoza</span>
                 </h1>
             </div>
 
+            {/* Social links */}
             <div
                 ref={el => animRefs.current[2] = el}
                 className="social-icons hero-animatable hero-animate-delay-2"
@@ -126,6 +143,7 @@ const Hero = () => {
                 </a>
             </div>
 
+            {/* Avatar */}
             <div
                 ref={el => animRefs.current[3] = el}
                 className="avatar-wrapper hero-animatable hero-animate-delay-3"

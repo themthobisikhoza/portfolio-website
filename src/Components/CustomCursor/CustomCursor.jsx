@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./CustomCursor.css";
 
 const CustomCursor = () => {
+
+  // Cursor position & hover state
+
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hover, setHover] = useState(false);
+
+
+  // Event listeners for mouse movement & hover detection
 
   useEffect(() => {
     const moveCursor = (e) => setPosition({ x: e.clientX, y: e.clientY });
@@ -16,6 +22,8 @@ const CustomCursor = () => {
       el.addEventListener("mouseleave", removeHover);
     });
 
+    // Cleanup on unmount
+
     return () => {
       document.removeEventListener("mousemove", moveCursor);
       document.querySelectorAll("a, button").forEach(el => {
@@ -24,6 +32,9 @@ const CustomCursor = () => {
       });
     };
   }, []);
+
+
+  // Render the cursor div
 
   return (
     <div

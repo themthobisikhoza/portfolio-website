@@ -1,23 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+﻿import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import "./Contact.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Earth from "../Models/Earth.jsx";
 
+// Social icons
 import EmailIcon from "../../assets/icons/email.png";
 import GitHubIcon from "../../assets/icons/github.png";
 import LinkedInIcon from "../../assets/icons/linkedin.png";
 
 const Contact = () => {
+    // Form state
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: "",
     });
 
+    // 🔹 References for intersection observer animations
     const contactRefs = useRef([]);
 
+    // IntersectionObserver for scroll animations
     useEffect(() => {
         const observer = new IntersectionObserver(
             entries => {
@@ -39,10 +43,12 @@ const Contact = () => {
         return () => observer.disconnect();
     }, []);
 
+    // Form input change handler
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // Form submission handler
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -60,15 +66,20 @@ const Contact = () => {
         setFormData({ name: "", email: "", message: "" });
     };
 
+    // Component render
     return (
         <div className="contact-page-wrapper">
+            {/* Contact Section */}
             <div className="contact-section" id="contact">
+                {/* Section title */}
                 <h2
                     ref={el => contactRefs.current[0] = el}
                     className="contact-title animatable animate-delay-0"
                 >
                     &lt;contact me /&gt;
                 </h2>
+
+                {/* Section subtitle */}
                 <h3
                     ref={el => contactRefs.current[1] = el}
                     className="contact-subtitle animatable animate-delay-1"
@@ -76,7 +87,9 @@ const Contact = () => {
                     LET'S YAP!<br /><br /> I'D LOVE TO TALK TO YOU. SHARE YOUR DEBUGGING HORROR STORIES OR MAYBE HIRE ME. I AM ALWAYS DOWN FOR A GOOD YAP SESSION.
                 </h3>
 
+                {/* Main content: 3D canvas + contact form */}
                 <div className="contact-content">
+                    {/* 3D Earth model */}
                     <div
                         ref={el => contactRefs.current[2] = el}
                         className="contact-3d animatable animate-delay-2"
@@ -93,6 +106,7 @@ const Contact = () => {
                         </Canvas>
                     </div>
 
+                    {/* Contact Form */}
                     <form
                         ref={el => contactRefs.current[3] = el}
                         className="contact-form animatable animate-delay-3"
@@ -129,8 +143,10 @@ const Contact = () => {
                 </div>
             </div>
 
+            {/* Footer */}
             <footer className="site-footer">
                 <div className="footer-container">
+                    {/* Brand info */}
                     <div className="footer-brand">
                         <h3>Mthobisi.</h3>
                         <p>
@@ -139,6 +155,7 @@ const Contact = () => {
                         </p>
                     </div>
 
+                    {/* Quick navigation links */}
                     <div className="footer-links">
                         <h4>Quick Links</h4>
                         <ul>
@@ -151,6 +168,7 @@ const Contact = () => {
                         </ul>
                     </div>
 
+                    {/* Social / Contact icons */}
                     <div className="footer-contact">
                         <h4>Connect</h4>
                         <div className="footer-socials">
@@ -167,6 +185,7 @@ const Contact = () => {
                     </div>
                 </div>
 
+                {/* Footer bottom text */}
                 <div className="footer-bottom">
                     &copy; 2025 Mthobisi Khoza. All rights reserved.
                 </div>

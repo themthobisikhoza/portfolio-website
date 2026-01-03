@@ -1,3 +1,4 @@
+/* Projects Section */
 .projects-section {
     position: relative;
     padding: 80px 10%;
@@ -6,6 +7,7 @@
     overflow: visible;
 }
 
+/* Project Titles */
 .projects-title {
     font-size: clamp(1.5rem, 6vw, 30px);
     font-family: 'Courier New', Courier, monospace;
@@ -34,7 +36,7 @@
     letter-spacing: 0.02em;
 }
 
-/* Container for 2 columns */
+/* Projects Layout Container */
 .projects-container {
     position: relative; /* for 3D overlap */
     display: flex;
@@ -43,7 +45,7 @@
     align-items: flex-start;
 }
 
-/* Left column: projects grid takes 60% */
+/* Projects Grid (Left Column) */
 .projects-grid {
     position: relative;
     z-index: 1; /* cards above 3D model */
@@ -54,7 +56,7 @@
     width: 50%;
 }
 
-/* Card layout for 3 projects */
+/* Card Layout */
 .card-1 {
     grid-column: 1 / 3; /* full width first row */
 }
@@ -67,7 +69,7 @@
     grid-column: 2 / 3; /* right side second row */
 }
 
-/* Right column: 3D canvas absolute, behind cards */
+/* 3D Canvas (Right Column) */
 .projects-3d {
     position: absolute;
     top: 0;
@@ -83,7 +85,7 @@
         height: 100% !important;
     }
 
-/* Card styles */
+/* Project Card Styles */
 .project-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
@@ -128,7 +130,7 @@
         color: white;
     }
 
-/* Responsive: stack columns on small screens */
+/* Responsive Layout */
 @media (max-width: 900px) {
     .projects-container {
         flex-direction: column;
@@ -171,6 +173,7 @@
     letter-spacing: 0.5px;
 }
 
+/* Project Links */
 .project-links {
     margin-top: 15px;
     display: flex;
@@ -184,14 +187,13 @@
         text-decoration: none;
     }
 
-
-
+/* Responsive Adjustments */
 @media (max-width: 900px) {
     .projects-3d {
         display: none;
     }
 
-    .projects-subtitle{
+    .projects-subtitle {
         font-size: 0.7rem;
         margin: 0px 0px -70px 0px;
     }
@@ -199,11 +201,9 @@
     .projects-subtitle-note {
         visibility: hidden;
     }
+}
 
-/* ========================= */
-/* ON-SCROLL BLUR + MOTION */
-/* ========================= */
-
+/* On-Scroll Blur + Motion */
 .animatable {
     opacity: 0;
     transform: translateY(20px);
@@ -217,7 +217,7 @@
     filter: blur(0);
 }
 
-/* Optional: stagger animations for projects */
+/* Stagger animations */
 .animate-delay-0 {
     transition-delay: 0s;
 }
@@ -241,4 +241,3 @@
 .animate-delay-5 {
     transition-delay: 1s;
 }
-

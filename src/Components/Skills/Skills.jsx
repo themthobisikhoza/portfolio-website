@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import React from "react";
 import "./Skills.css";
 
-// 🔹 Import your PNG logos
+// Import your PNG logos
 import githubLogo from "../../assets/icons/github-sd.png";
 import jsLogo from "../../assets/icons/js.png";
 import csharpLogo from "../../assets/icons/c-sharp.png";
@@ -22,7 +22,7 @@ import sparkLogo from "../../assets/icons/apache-spark.png";
 const Skills = () => {
     const animRefs = useRef([]);
 
-    // 🎇 Particle Background
+    // Particle Background setup
     useEffect(() => {
         const canvas = document.getElementById("skills-bg");
         const ctx = canvas.getContext("2d");
@@ -70,7 +70,7 @@ const Skills = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // 🔹 IntersectionObserver for animations
+    // IntersectionObserver for card animations
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -90,7 +90,7 @@ const Skills = () => {
         return () => observer.disconnect();
     }, []);
 
-    // 🔹 Skill categories with logos & description
+    // Skills data with logos and descriptions
     const skills = [
         {
             title: "Frontend",
@@ -118,8 +118,10 @@ const Skills = () => {
         },
     ];
 
+    // Render Skills Section
     return (
         <div className="skills-section" id="skills">
+            {/* Particle Background Canvas */}
             <canvas id="skills-bg" className="skills-bg"></canvas>
 
             {/* Section title & subtitle */}
@@ -136,7 +138,7 @@ const Skills = () => {
                 WHAT CAN I DO?
             </h2>
 
-            {/* Skill cards */}
+            {/* Skills Grid */}
             <div className="skills-grid">
                 {skills.map((skill, index) => (
                     <div
@@ -144,11 +146,14 @@ const Skills = () => {
                         key={index}
                         ref={(el) => (animRefs.current[index + 2] = el)}
                     >
+                        {/* Logos */}
                         <div className="logos">
                             {skill.logos.map((logo, idx) => (
                                 <img src={logo} alt="tech-logo" key={idx} />
                             ))}
                         </div>
+
+                        {/* Title & Description */}
                         <h3>{skill.title}</h3>
                         <p>{skill.description}</p>
                     </div>

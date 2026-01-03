@@ -11,7 +11,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 10); // add blur after 10px scroll
+            setScrolled(window.scrollY > 10); 
         };
 
         window.addEventListener('scroll', handleScroll);

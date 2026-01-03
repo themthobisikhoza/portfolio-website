@@ -11,6 +11,7 @@ import ConstructionImg from "../../assets/images/Construction.jpg";
 const Projects = () => {
     const projectRefs = useRef([]);
 
+    // Animation observer setup
     useEffect(() => {
         const observer = new IntersectionObserver(
             entries => {
@@ -32,6 +33,7 @@ const Projects = () => {
         return () => observer.disconnect();
     }, []);
 
+    // Project data
     const projects = [
         {
             title: "Portfolio Website",
@@ -59,8 +61,10 @@ const Projects = () => {
         },
     ];
 
+    // Render
     return (
         <div className="projects-section" id="projects">
+            {/* Section Titles */}
             <h2
                 ref={el => projectRefs.current[0] = el}
                 className="projects-title animatable animate-delay-0"
@@ -77,6 +81,7 @@ const Projects = () => {
                 </span>
             </h3>
 
+            {/* Projects Grid */}
             <div className="projects-container">
                 <div className="projects-grid">
                     {projects.map((proj, index) => (
@@ -97,6 +102,7 @@ const Projects = () => {
                             <h5>{proj.subtitle}</h5>
                             <p>{proj.description}</p>
 
+                            {/* Project Links */}
                             <div className="project-links">
                                 {proj.github && (
                                     <a href={proj.github} target="_blank" rel="noopener noreferrer" className="round-outline-btn">
@@ -114,6 +120,7 @@ const Projects = () => {
                     ))}
                 </div>
 
+                {/* 3D Model Section */}
                 <div
                     ref={el => projectRefs.current[5] = el}
                     className="projects-3d animatable animate-delay-4"

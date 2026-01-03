@@ -1,186 +1,199 @@
-.about-content {
-  position: relative;
-  z-index: 1;
-  left: 250px;
-  /* keeps text above canvas */
-}
+/* ==========================================================================
+// ABOUT SECTION LAYOUT
+// ==========================================================================
+*/
 
 .about-section {
-  min-height: 95vh;
-  width: 100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column; 
-  align-items: flex-start;
-  padding: 40px 100px;
-  color: white;
-  overflow: visible; 
+    min-height: 95vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 100px;
+    color: white;
+    overflow: visible;
 }
 
+.about-content {
+    position: relative;
+    z-index: 1; /* keeps text above canvas */
+    left: 250px;
+}
+
+/* ==========================================================================
+// ABOUT TEXT STYLES
+// ==========================================================================
+*/
 
 .about-title {
-  font-size: clamp(1.5rem, 6vw, 30px);
-  font-family: 'Courier New', Courier, monospace;
-  left: 350px;
-  text-transform: lowercase;
-  font-weight: 400;
-  margin-top: 130px;
-  color: #0cc0df;
+    margin-top: 130px;
+    font-size: clamp(1.5rem, 6vw, 30px);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    text-transform: lowercase;
+    color: #0cc0df;
 }
 
 .about-subtitle {
-  font-size: 15px;
-  margin: 0;
-  font-family: 'Poppins';
-  text-transform: uppercase;
-  color: lightgray;
-  letter-spacing: 0.04ch;
-  margin-bottom: 35px;
+    margin: 0 0 35px;
+    font-size: 15px;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    letter-spacing: 0.04ch;
+    color: lightgray;
 }
 
 .about-text {
-  font-size: 24px;
-  margin: 0;
-  font-family: 'Poppins';
-  letter-spacing: 0.04ch;
-  line-height: 1.35;
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Poppins';
+    letter-spacing: 0.04ch;
+    line-height: 1.35;
 }
 
 .about-subtext {
-  font-size: 15px;
-  margin: 0;
-  font-family: 'Poppins';
-  color: lightgray;
-  letter-spacing: 0.04ch;
-  margin-bottom: 35px;
+    margin: 0 0 35px;
+    font-size: 15px;
+    font-family: 'Poppins';
+    letter-spacing: 0.04ch;
+    color: lightgray;
 }
 
+/* ==========================================================================
+// ABOUT IMAGE
+// ==========================================================================
+*/
+
 .about-text-image {
-  display: flex;
-  gap: 40px; /* spacing between text and image */
-  align-items: flex-center; /* align image to top of text */
+    display: flex;
+    gap: 40px;
+    align-items: flex-center;
 }
 
 .about-image {
-  width: 730px;       
-  height: 350px;      /* make sure width = height */
-  border-radius: 50%;  
-  object-fit: cover;  /* ensures the image fills the circle without stretching */
-  background: linear-gradient(135deg, #7f00ff, #0cc0df, #ff00c8, #0077ff);
-  background-size: 400% 400%;
-  margin-top: 200px;
-  margin-right: 250px;
-  animation: gradientShift 6s ease infinite;
+    width: 730px;
+    height: 350px;
+    margin-top: 200px;
+    margin-right: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: linear-gradient(135deg, #7f00ff, #0cc0df, #ff00c8, #0077ff);
+    background-size: 400% 400%;
+    animation: gradientShift 6s ease infinite;
 }
+
+/* ==========================================================================
+// BUTTONS
+// ==========================================================================
+*/
 
 .round-outline-btn {
     margin-right: 15px;
 }
 
-/* gradient animation */
+/* ==========================================================================
+// EXPERIENCE SECTION (HORIZONTAL SCROLL)
+// ==========================================================================
+*/
+
+.carousel-section {
+    height: 110vh;
+    position: relative;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    background-color: transparent;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 35%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 2rem;
+    padding-left: 10vw;
+    width: max-content;
+    will-change: transform;
+}
+
+/* ==========================================================================
+// EXPERIENCE CARDS
+// ==========================================================================
+*/
+
+.image-container {
+    flex: 0 0 auto;
+}
+
+    .image-container img {
+        width: 400px;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+/* ==========================================================================
+// EXPERIENCE TITLES
+// ==========================================================================
+*/
+
+.experience-title {
+    position: absolute;
+    top: 20px;
+    left: 45%;
+    margin-top: 130px;
+    transform: translateX(-50%);
+    font-size: clamp(1.5rem, 6vw, 30px);
+    font-family: 'Courier New', Courier, monospace;
+    color: #0cc0df;
+    text-align: center;
+    z-index: 10;
+}
+
+.experience-subtitle {
+    position: absolute;
+    top: 65px;
+    left: 29%;
+    margin-top: 130px;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.05ch;
+    color: lightgray;
+    text-align: center;
+}
+
+.experience-subtitle-note {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 60px;
+}
+
+/* ==========================================================================
+// SHARED ANIMATIONS
+// ==========================================================================
+*/
+
 @keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ---- General responsive styles ---- */
-@media (max-width: 900px) {
-
-    .about-section {
-        padding: 40px 5%;
-        min-height: auto;
-        align-items: center;
-    }
-
-    .about-content {
-        left: 0; /* remove fixed offset */
-        text-align: center;
-    }
-
-    .about-text-image {
-        flex-direction: column; /* stack text and image vertically */
-        gap: 20px;
-        align-items: center;
-    }
-
-    .about-text {
-        font-size: 18px;
-        line-height: 1.4;
-    }
-
-    .about-title {
-        margin-top: 80px;
-        font-size: clamp(1.5rem, 6vw, 26px);
-        left: 0;
-    }
-
-    .about-subtitle {
-        font-size: 13px;
-        margin-bottom: 25px;
-    }
-
-    .about-subtext {
-        font-size: 13px;
-        line-height: 1.4;
-        margin-bottom: 25px;
-    }
-
-    .about-image {
-        width: 300px; /* scale down */
-        height: 300px;
-        margin-top: 0;
-        margin-right: 0;
-    }
-
-    .round-outline-btn {
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 500px) {
-    .about-text {
-        font-size: 16px;
-    }
-
-    .about-title {
-        font-size: clamp(1.2rem, 8vw, 22px);
-    }
-
-    .about-subtitle {
-        font-size: 12px;
-    }
-
-    .about-image {
-        width: 220px;
-        height: 220px;
-    }
-
-    .about-subtext {
-        font-size: 12px;
-    }
-}
-
-/* ========================= */
-/* ON-SCROLL BLUR ANIMATIONS */
-/* ========================= */
-
-@keyframes blurFadeIn {
     0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateY(20px);
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
     }
 
     100% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateY(0);
+        background-position: 0% 50%;
     }
 }
 
-/* Animatable initial state */
 .animatable {
     opacity: 0;
     filter: blur(10px);
@@ -188,14 +201,13 @@
     transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
 }
 
-/* Trigger animation */
 .animate {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
 }
 
-/* Optional: stagger with delays */
+/* Stagger delays */
 .animate-delay-0 {
     transition-delay: 0s;
 }
@@ -220,3 +232,93 @@
     transition-delay: 1.4s;
 }
 
+/* ==========================================================================
+// RESPONSIVE — TABLET & MOBILE
+// ==========================================================================
+*/
+
+@media (max-width: 900px) {
+    .about-section {
+        padding: 40px 5%;
+        min-height: auto;
+        align-items: center;
+    }
+
+    .about-content {
+        left: 0;
+        text-align: center;
+    }
+
+    .about-text-image {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .about-text {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .about-title {
+        margin-top: 80px;
+        font-size: clamp(1.5rem, 6vw, 26px);
+    }
+
+    .about-image {
+        width: 300px;
+        height: 300px;
+        margin: 0;
+    }
+
+    .round-outline-btn {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-section {
+        height: auto;
+        padding: 120px 0 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sticky-container {
+        position: static;
+        transform: none !important;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .experience-title,
+    .experience-subtitle {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text {
+        font-size: 16px;
+    }
+
+    .about-subtext {
+        font-size: 12px;
+    }
+
+    .about-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .experience-subtitle-note {
+        visibility: hidden;
+    }
+}

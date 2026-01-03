@@ -39,7 +39,7 @@ body, button, a {
 
 body {
     background: radial-gradient(circle, #1a195b 0%, #000000 100%);
-    background-size: 150% 150%; /* start zoomed */
+    background-size: 150% 150%; 
     background-position: center;
     animation: pulseBG 6s ease-in-out infinite;
     font-family: 'NuMono', sans-serif;
@@ -47,15 +47,14 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 1;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    /* Remove flex & justify-content */
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
     display: block;
 }
 
 
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none; 
 }
 
 @keyframes pulseBG {
@@ -103,7 +102,7 @@ body::-webkit-scrollbar {
   cursor: pointer;
   transition: all 0.3s ease;
   color: white;
-  position: relative; /* create stacking context */
+  position: relative;
   margin-top: 12px;
 }
 
@@ -171,10 +170,9 @@ body::-webkit-scrollbar {
         text-align: center;
     }
 
-    /* Overlay menu (instead of pushing content) */
     .navbar-collapse {
         position: absolute !important;
-        top: 60px; /* height of navbar */
+        top: 60px; 
         left: 25px;
         width: 100%;
         z-index: 9999;
@@ -199,7 +197,6 @@ body::-webkit-scrollbar {
         gap: 8px;
     }
 
-    /* Fix alignment of container */
     .mobile-transparent-nav .container-fluid {
         position: relative;
         display: flex;
@@ -207,7 +204,6 @@ body::-webkit-scrollbar {
         align-items: center;
     }
 
-    /* Fix toggler */
     .navbar-toggler {
         border: none !important;
     }
